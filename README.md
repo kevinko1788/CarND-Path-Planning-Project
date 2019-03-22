@@ -15,6 +15,24 @@ The goal of this project the "ego" car to:
 
 The project must meet all points in the [rubric](https://review.udacity.com/#!/rubrics/1971/view). As shown in screenshot, this implementation can run at least 10 miles / 15 minutes without incident. 
 
+### The car is able to drive at least 4.32 miles without incident
+It was able to drive more than 15.12 miles without incident. Please refer to above image.
+
+### The car drives according to the speed limit. (50mph)
+The MAX_SPEED is set to 49.5. No speed limit red message was seen.
+
+### Max Acceleration and Jerk are not Exceeded.
+As the walkthrough video suggested, MAX_ACC is set to .224. Max jerk red message was not seen.
+
+### Car does not have collisions.
+No collisions.
+
+### The car stays in its lane, except for the time between changing lanes
+The car stayed in center of the lane, except when it is making lane changes.
+
+### The car is able to change lanes
+The car is able to make lane changes left and right safely when the front car is blocking the traffic. The car checks 30 meters front and back.
+
 ## Install and Run
 Please refer to Udacity's original README.md file for the installation instructions. Original README file is also appended below.
 
@@ -37,7 +55,7 @@ This part of the code deal with the sensor fusion data.
 * Check if there is a car to the right of us & range to see if we can make lane changes.
 * Check if there is a car to the left of us & range to see if we can make lane changes.
 
-The parameter is hard coded to 30 meters in front or behind for the safe lane change check.
+The parameter is hard coded to 30 meters in front and behind for the safe lane change check.
 
 ### Behavior [line 157](./src/main.cpp#L157)
 This part of the code deal with what to do:
@@ -53,7 +71,7 @@ This part computes the trajectory of the vehicle based on decisions made from ab
 
 The walk through video is pretty much goes over how to generate the trajectory using splines. For this, you need spine.h included in the header of the file.[Spline](https://kluge.in-chemnitz.de/opensource/spline/)
 
-The last two points of the previous trajectory are used. If previous there are no previous trajectory, the cars current position is used[line191](./src/main.cpp#L191). In addition, the Frenet helper function getXY() is used to get three points evenly 30 meters apart. 
+The last two points of the previous trajectory are used. If previous there are no previous trajectory, the cars current position is used [line191](./src/main.cpp#L191). In addition, the Frenet helper function getXY() is used to get three points evenly 30 meters apart. 
 
 To keep the calculation simple, the video suggested to convert coordinates to local car coordinates.
 
