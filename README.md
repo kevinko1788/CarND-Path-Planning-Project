@@ -13,6 +13,34 @@ The goal of this project the "ego" car to:
 * The car stays in its lane, except for the time between changing lanes.
 * The car is able to change lanes
 
+The project must meet all points in the [rubric](https://review.udacity.com/#!/rubrics/1971/view). As shown in screenshot, this implementation can run at least 10 miles / 15 minutes without incident. 
+
+## Install and Run
+Please refer to Udacity's original README.md file for the installation instructions. Original README file is also appended below.
+
+## Implementation
+You can start off by watching basic walktorugh provided by Udacity. [Udacity's walk-through video](https://www.youtube.com/watch?v=7sI3VHFPP0w)
+The video walks through the necessary implementation how to make the vehicle move as well as:
+* make ego drive stright
+* make ego drive in same lane using S and D values
+* implement basic spline with constant velocity 
+
+All you need to implement your own after the video is to change the lane when it is safe to do so.
+
+The code can be separated into three parts:
+### Prediction [line 108](./src/main.cpp#L108)
+This part of the code deal with the sensor fusion data.
+* Parse sensor data
+* Check lanes of each detected cars and check their speed.
+* Estimate other car's position after executing previous trajectory 
+* Check if the car in front of us blocking traffic
+* Check if there is a car to the right of us & range to see if we can make lane changes
+* Check if there is a car to the left of us & range to see if we can make lane changes
+
+The parameter is hard coded to 30 meters in front or behind for the safe lane change check.
+
+### Behavior [line 157](./src/main.cpp#L157)
+### Trajectory [line 183](./src/main.cpp#L183)
 *the description below is Udacity's original README for the project repo*
 
 ---
